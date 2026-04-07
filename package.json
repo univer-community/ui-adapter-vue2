@@ -1,0 +1,74 @@
+{
+  "name": "@univer-community/ui-adapter-vue2",
+  "version": "0.20.0",
+  "description": "Vue 2 adapter plugin for Univer UI components",
+  "keywords": [
+    "adapter",
+    "plugin",
+    "univer",
+    "vue2"
+  ],
+  "homepage": "https://github.com/univer-community",
+  "license": "MIT",
+  "author": "白熱 <sonne@asaki.me>",
+  "files": [
+    "lib"
+  ],
+  "type": "module",
+  "main": "./lib/cjs/index.cjs",
+  "module": "./lib/es/index.mjs",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/es/index.mjs",
+      "require": "./lib/cjs/index.cjs"
+    }
+  },
+  "scripts": {
+    "prepare": "simple-git-hooks",
+    "build": "pnpm run build:bundle && pnpm run build:types",
+    "build:bundle": "node --import tsx/esm ./scripts/build.ts build --cleanup",
+    "build:types": "tsc -p tsconfig.node.json",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "dev": "vite --config vite.demo.config.ts",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2",
+    "@univerjs/core": "^0.20.0",
+    "@univerjs/design": "^0.20.0",
+    "@univerjs/docs": "^0.20.0",
+    "@univerjs/docs-ui": "^0.20.0",
+    "@univerjs/engine-formula": "^0.20.0",
+    "@univerjs/engine-render": "^0.20.0",
+    "@univerjs/sheets": "^0.20.0",
+    "@univerjs/sheets-formula": "^0.20.0",
+    "@univerjs/sheets-formula-ui": "^0.20.0",
+    "@univerjs/sheets-numfmt": "^0.20.0",
+    "@univerjs/sheets-numfmt-ui": "^0.20.0",
+    "@univerjs/sheets-ui": "^0.20.0",
+    "@univerjs/ui": "^0.20.0",
+    "@vitejs/plugin-vue2": "^2.3.4",
+    "oxfmt": "^0.44.0",
+    "oxlint": "^1.59.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "simple-git-hooks": "^2.13.1",
+    "tsdown": "^0.21.7",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.5",
+    "vue": "^2.7.16"
+  },
+  "peerDependencies": {
+    "vue": "^2.7.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint:fix && pnpm fmt"
+  }
+}
