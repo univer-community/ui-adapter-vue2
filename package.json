@@ -11,24 +11,33 @@
   "homepage": "https://github.com/univer-community",
   "license": "MIT",
   "author": "白熱 <sonne@asaki.me>",
+  "directories": {
+    "lib": "lib"
+  },
   "files": [
     "lib"
   ],
-  "type": "module",
-  "main": "./lib/cjs/index.cjs",
-  "module": "./lib/es/index.mjs",
+  "main": "./src/index.ts",
   "types": "./lib/types/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./lib/types/index.d.ts",
-      "import": "./lib/es/index.mjs",
-      "require": "./lib/cjs/index.cjs"
-    }
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "import": "./lib/es/index.js",
+        "require": "./lib/cjs/index.js",
+        "types": "./lib/types/index.d.ts"
+      }
+    },
+    "main": "./lib/es/index.js",
+    "module": "./lib/es/index.js"
   },
   "scripts": {
     "prepare": "simple-git-hooks",
     "build": "pnpm run build:bundle && pnpm run build:types",
-    "build:bundle": "node --import tsx/esm ./scripts/build.ts build --cleanup",
+    "build:bundle": "node ./scripts/build.mjs build --cleanup",
     "build:types": "tsc -p tsconfig.node.json",
     "build:demo": "vite build --config vite.demo.config.ts",
     "dev": "vite --config vite.demo.config.ts",
@@ -38,9 +47,12 @@
     "fmt:check": "oxfmt --check",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@univerjs/core": "^0.20.0",
+    "@univerjs/ui": "^0.20.0"
+  },
   "devDependencies": {
     "@types/node": "^25.5.2",
-    "@univerjs/core": "^0.20.0",
     "@univerjs/design": "^0.20.0",
     "@univerjs/docs": "^0.20.0",
     "@univerjs/docs-ui": "^0.20.0",
@@ -52,7 +64,6 @@
     "@univerjs/sheets-numfmt": "^0.20.0",
     "@univerjs/sheets-numfmt-ui": "^0.20.0",
     "@univerjs/sheets-ui": "^0.20.0",
-    "@univerjs/ui": "^0.20.0",
     "@vitejs/plugin-vue2": "^2.3.4",
     "oxfmt": "^0.44.0",
     "oxlint": "^1.59.0",

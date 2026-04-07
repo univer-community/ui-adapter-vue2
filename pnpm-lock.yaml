@@ -7,13 +7,17 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@univerjs/core':
+        specifier: ^0.20.0
+        version: 0.20.0(react@19.2.4)(rxjs@7.8.2)
+      '@univerjs/ui':
+        specifier: ^0.20.0
+        version: 0.20.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rxjs@7.8.2)
     devDependencies:
       '@types/node':
         specifier: ^25.5.2
         version: 25.5.2
-      '@univerjs/core':
-        specifier: ^0.20.0
-        version: 0.20.0(react@19.2.4)(rxjs@7.8.2)
       '@univerjs/design':
         specifier: ^0.20.0
         version: 0.20.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -45,9 +49,6 @@ importers:
         specifier: ^0.20.0
         version: 0.20.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rxjs@7.8.2)
       '@univerjs/sheets-ui':
-        specifier: ^0.20.0
-        version: 0.20.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rxjs@7.8.2)
-      '@univerjs/ui':
         specifier: ^0.20.0
         version: 0.20.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rxjs@7.8.2)
       '@vitejs/plugin-vue2':
