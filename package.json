@@ -1,6 +1,6 @@
 {
   "name": "@univer-community/ui-adapter-vue2",
-  "version": "0.22.0",
+  "version": "0.23.0",
   "description": "Vue 2 adapter plugin for Univer UI components",
   "keywords": [
     "adapter",
